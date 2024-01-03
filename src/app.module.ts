@@ -7,6 +7,8 @@ import { UserModule } from './user/user.module';
 import Joi from 'joi';
 import { User } from './user/entities/user.entity';
 import { ShowModule } from './show/show.module';
+import { Show } from './show/entities/show.entity';
+import { ReservationModule } from './reservation/reservation.module';
 // Joi는 javascript객체의 유효성 검사를 위한 라이브러리이며,
 // 객체의 형식이나 값이 일정한 규칙을 따르는지 확인하고 검증하는데 사용되며,
 // 주로 데이터의 유효성 검사하고 필터링하는데 활용된다.
@@ -22,7 +24,7 @@ const typeOrmModuleOption = {
     host: configService.get('DB_HOST'),
     port: configService.get('DB_PORT'),
     database: configService.get('DB_NAME'),
-    entities: [User],
+    entities: [User, Show],
     synchronize: configService.get('DB_SYNC'),
     logging: true,
   }),
@@ -47,6 +49,7 @@ const typeOrmModuleOption = {
     AuthModule,
     UserModule,
     ShowModule,
+    ReservationModule,
   ],
   controllers: [],
   providers: [],

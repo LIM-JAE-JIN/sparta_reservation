@@ -12,6 +12,12 @@ import {
   name: 'users',
 })
 export class User {
+  static findOne(
+    arg0: { id: any },
+    arg1: { select: string[]; loadEagerRelations: boolean },
+  ) {
+    throw new Error('Method not implemented.');
+  }
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -30,7 +36,7 @@ export class User {
   @Column('bigint', { default: 1000000 })
   point: number;
 
-  @Column('boolean', { default: false, nullable: false, select: false })
+  @Column('boolean', { default: false, nullable: false })
   admin: boolean;
 
   @CreateDateColumn()
